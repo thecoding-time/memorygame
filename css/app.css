@@ -1,0 +1,201 @@
+html {
+		box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+		box-sizing: inherit;
+}
+
+html,
+body {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+}
+
+body {
+		background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+		font-family: 'Coda', cursive;
+}
+
+.container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+}
+
+h1 {
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 500;
+}
+
+/*******************************************************************************
+THE DECK OF CARDS
+The deck is the coloured square: the background of the memory game cards. */
+
+.deck {
+		width: 660px;
+		min-height: 680px;
+		background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+		padding: 32px;
+		border-radius: 10px;
+		box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		margin: 0 0 3em;
+}
+
+.deck .card {
+		height: 125px;
+		width: 125px;
+		background: #2e3d49;
+		/* The font-size is 0 so that the symbols are hidden. The font size is bigger in
+		.deck .card.show. This should be activated when the card is flipped. */
+		font-size: 0;
+		color: #ffffff;
+		border-radius: 8px;
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+/* transform: rotateY(); gives the card 3D-rotation around the Y-axis. --> Figure
+out which value is appropriate. Maybe 180 degrees? */
+.deck .card.open {
+		transform: rotateY(0);
+		background: #02b3e4;
+		cursor: default;
+}
+
+/* The big font size makes sure that the card symbols show. Activate this when the
+card is flipped. */
+.deck .card.show {
+		font-size: 33px;
+}
+
+/* The colour of the card has to change when there is a match. */
+.deck .card.match {
+		cursor: default;
+		background: #02ccba;
+		font-size: 33px;
+}
+
+.deck .card.disableClick {
+		pointer-events: none;
+}
+/*
+ * Styles for the Score Panel
+ */
+
+/*******************************************************************************
+THE SCORE PANEL */
+
+.score-panel {
+		text-align: left;
+		font-size: 1.7em;
+		width: 640px;
+		margin-bottom: 10px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		/*align-items: center;*/
+}
+
+.score-panel .timer {
+		width: 280px;
+}
+
+/* TODO: Fancy bonus: Add animation to the stars. */
+.score-panel .stars {
+		margin: 0;
+		padding: 0;
+		display: inline-block;
+		margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+		list-style: none;
+		display: inline-block;
+}
+
+.score-panel .stars .orange {
+		color: orange;
+}
+
+.score-panel .restart {
+		/*float: right;*/
+		cursor: pointer;
+}
+
+/*******************************************************************************
+THE MODAL BOX
+
+The main code for the modal box is taken from
+https://sabe.io/tutorials/how-to-create-modal-popup-box
+Its style and functionality will be adapted to the needs of the Memory Game*/
+
+.modal {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		opacity: 0;
+		visibility: hidden;
+		transform: scale(1.1);
+		transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+.modal-content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: white;
+		padding: 1rem 1.5rem;
+		width: 24rem;
+		border-radius: 0.5rem;
+}
+.close-button {
+		float: right;
+		width: 1.5rem;
+		line-height: 1.5rem;
+		text-align: center;
+		cursor: pointer;
+		border-radius: 0.25rem;
+		background-color: lightgray;
+		font-size: 2em;
+}
+.close-button:hover {
+		background-color: darkgray;
+}
+.show-modal {
+		opacity: 1;
+		visibility: visible;
+		transform: scale(1.0);
+		transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+#modal-score {
+		font-size: 1.5em;
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		width: 320px;
+}
+
+#final-restart {
+		font-size: 1.5em;
+}
+
+#final-restart:hover {
+		cursor: pointer;
+}

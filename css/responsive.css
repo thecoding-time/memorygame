@@ -1,0 +1,108 @@
+/*******************************************************************************
+RESPONSIVE WEBDESIGN*/
+
+/* Make site responsive to *very* small phones */
+@media screen and (max-width: 350px){
+		h1 {
+			font-weight: 400;
+			font-size: 1.3em;
+		}
+
+		.deck {
+			width: 280px;
+			min-height: 300px;
+			padding: 15px;
+		}
+
+		.deck .card {
+			width: 60px;
+			height: 60px;
+		}
+
+		.score-panel {
+			width: 280px;
+			font-size: 1.1em;
+			flex-wrap: wrap;
+			flex-direction: column;
+			text-align: left;
+		}
+}
+
+
+/* Make site responsive to small phones */
+@media screen and (max-width: 400px){
+
+		h1 {
+			font-weight: 400;
+			font-size: 1.3em;
+		}
+
+		.deck {
+			width: 320px;
+			min-height: 320px;
+			padding: 10px;
+		}
+
+		.deck .card {
+			width: 70px;
+			height: 70px;
+		}
+
+		.score-panel {
+			width: 300px;
+			font-size: 1.1em;
+			flex-wrap: wrap;
+			flex-direction: column;
+			text-align: left;
+		}
+}
+
+/* Make site responsive to phones */
+@media screen and (min-width: 401px) and (max-width: 600px){
+
+		h1 {
+			font-weight: 400;
+			font-size: 1.3em;
+		}
+
+		.deck {
+			width: 380px;
+			min-height: 380px;
+			padding: 15px;
+		}
+
+		.deck .card {
+			width: 80px;
+			height: 80px;
+		}
+
+		.score-panel {
+			width: 380px;
+			font-size: 1.1em;
+			flex-wrap: wrap;
+			flex-direction: column;
+			text-align: left;
+		}
+}
+
+/* Make site responsive to tablets */
+@media screen and (min-width: 601px) and (max-width: 800px){
+
+		.deck {
+			width: 580px;
+			min-height: 580px;
+			padding: 20px;
+		}
+
+		.deck .card {
+			width: 120px;
+			height: 120px;
+		}
+
+		.score-panel {
+			width: 500px;
+			flex-wrap: wrap;
+			flex-direction: column;
+			text-align: left;
+		}
+}
